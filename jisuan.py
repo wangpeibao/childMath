@@ -112,14 +112,15 @@ class Jisuan(QWidget):
             self.index += 1
             self.dialog = Result(status=True)
             self.dialog.show()
-            self.dialog_timer.start(2000)
+            self.dialog_timer.start(1500)
+            self.create_question()
         else:
             if self.index == len(self.result):
                 self.result.append(False)
             self.answer.setText("")
             self.dialog = Result(status=False)
             self.dialog.show()
-            self.dialog_timer.start(2000)
+            self.dialog_timer.start(1500)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
