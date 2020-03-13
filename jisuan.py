@@ -13,6 +13,7 @@ def resource_path(relative_path):
         base_path = sys._MEIPASS
     else:
         base_path = os.path.abspath(".")
+    os.path.join(base_path, "static")
     return os.path.join(base_path, relative_path)
 
 
@@ -22,9 +23,10 @@ class Result(QDialog):
         self.resize(200, 200)
         self.setWindowTitle("结果")
         if status:
-            pix = QPixmap(resource_path("static/right.png"))
+            pix = QPixmap(resource_path("right.png"))
         else:
-            pix = QPixmap(resource_path("static/wrong.png"))
+            pix = QPixmap(resource_path("wrong.png"))
+            print(resource_path("static/wrong.png"))
         self.label = QLabel(self)
         self.label.setPixmap(pix)
         self.label.setScaledContents(True)
@@ -125,7 +127,7 @@ class Jisuan(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setApplicationName("圆圆学计算")
-    filename = resource_path("static/icon.ico")
+    filename = resource_path("icon.ico")
     print(filename)
     app.setWindowIcon(QIcon(filename))
     ui = Jisuan()
